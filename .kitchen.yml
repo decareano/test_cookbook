@@ -1,18 +1,25 @@
 ---
-driver:
+driver: 
   name: vagrant
-
-provisioner:
+platforms: 
+  - 
+    name: ubuntu-12.04
+  - 
+    name: ubuntu-10.04
+  - 
+    name: centos-6.4
+provisioner: 
   name: chef_solo
-
-platforms:
-  - name: ubuntu-12.04
-  - name: ubuntu-10.04
-  - name: centos-6.4
-suites:
-  - name: default
-    run_list:
-
-      - recipe[git::default]
-
-    attributes:
+suites: 
+  - 
+    attributes: ~
+    name: default
+    run_list: 
+      - "recipe[git::default]"
+  - 
+    attributes: ~
+    name: server
+    run_list: 
+      - "recipe[git::server]"
+    attributes: ~
+      - centos-6.4
